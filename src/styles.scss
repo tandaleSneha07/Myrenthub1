@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+html,body{
+    margin:0;
+    padding:0;
+    height: 100%;
+    width: 100%;
+    background-image:url('/images/background.jpg');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.welcome-page-active body{
+    background-image: none;
+    background: linear-gradient(135deg, #002855, #f57c00);
+}
