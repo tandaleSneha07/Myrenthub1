@@ -178,16 +178,18 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Search Properties</a></li>
-                <li><a href="#">My Rentals</a></li>
-                <li><a href="#">Feedback</a></li>
-                <li><a href="#">Account</a></li>
+                <li><a href="#">WishList</a></li>
+                <li><a routerLink="/feedback" (click)="debugNavigation()">Feedback</a>
+                <li><a routerLink="account" (click)="navigate()">Account</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <div class="dashboard">
+            <div class="tenant-container">
+               
+            </div>
             <section class="search-properties">
                 <h2>Search Properties</h2>
                 <input type="text" placeholder="Enter location or property type" id="search-input">

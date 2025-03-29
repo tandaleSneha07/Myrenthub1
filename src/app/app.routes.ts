@@ -4,6 +4,11 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LandlordComponent } from './dashboard/landlord/landlord.component';
 import { TenantComponent } from './dashboard/tenant/tenant.component';
+import { AddpropertyComponent } from './dashboard/addproperty/addproperty.component';
+import { FeedbackComponent } from './dashboard/feedback/feedback.component';
+import { AccountComponent } from './dashboard/account/account.component';
+
+
 
 export const routes: Routes = [
     {path:'welcome',component:WelcomeComponent},
@@ -11,6 +16,10 @@ export const routes: Routes = [
     {path:'register',component:RegisterComponent},
     {path:'landlord',component:LandlordComponent},
     {path:'tenant',component:TenantComponent},
+    {path:'addproperty',component:AddpropertyComponent},
+    {path:'feedback',component:FeedbackComponent},
+    {path:'account',component:AccountComponent},
+   
 
     {path: '**', redirectTo: 'welcome', pathMatch: 'full' }
 ];

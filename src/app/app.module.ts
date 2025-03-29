@@ -4,23 +4,32 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './auth/welcome/welcome.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AddpropertyComponent } from './dashboard/addproperty/addproperty.component';
+import { FeedbackComponent } from './dashboard/feedback/feedback.component';
+import { AccountComponent } from './dashboard/account/account.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    WelcomeComponent,  // ✅ Ensure WelcomeComponent is declared
-    LoginComponent,
-    RegisterComponent
+    AppComponent,         // Main application component
+    WelcomeComponent,     // Welcome page component
+    LoginComponent,       // Login page component
+    RegisterComponent,    // Registration page component
+    AddpropertyComponent, // Add property feature component
+    FeedbackComponent,    // Feedback feature component
+    AccountComponent,     // Account management component
+        
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule
+    BrowserModule,        // Core Angular module for browser support
+    AppRoutingModule,     // Application routing module
+    RouterModule, 
+          
+    
   ],
   providers: [],
-  bootstrap: [AppComponent] // ✅ Ensures AppComponent is bootstrapped
+  bootstrap: [AppComponent] // Bootstrapping the main AppComponent
 })
 export class AppModule { }

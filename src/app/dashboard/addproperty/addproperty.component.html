@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Properties</title>
+</head>
+<body style="background-color: #fef6e4; font-family: Arial, sans-serif; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div style="width: 100%; max-width: 500px; padding: 20px; margin: 40px;">
+    <div style="background: #ffffff; border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); padding: 20px;">
+      <h1 style="text-align: center; color: #ff7a00; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Add Property</h1>
+      <form>
+        <div style="margin-bottom: 15px;">
+          <label for="propertyName" style="font-weight: bold; color: #007acc; margin-bottom: 5px; display: block;">Property Name</label>
+          <input type="text" id="propertyName" placeholder="Enter property name" required
+            style="width: 95%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; font-size: 14px; transition: all 0.3s ease;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="location" style="font-weight: bold; color: #007acc; margin-bottom: 5px; display: block;">Location</label>
+          <input type="text" id="location" placeholder="Enter location" required
+            style="width: 95%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; font-size: 14px; transition: all 0.3s ease;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="price" style="font-weight: bold; color: #007acc; margin-bottom: 5px; display: block;">Price (₹)</label>
+          <input type="number" id="price" placeholder="Enter price" required
+            style="width: 95%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; font-size: 14px; transition: all 0.3s ease;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="description" style="font-weight: bold; color: #007acc; margin-bottom: 5px; display: block;">Description</label>
+          <textarea id="description" placeholder="Enter property description" rows="4"
+            style="width: 95%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; font-size: 14px; transition: all 0.3s ease;"></textarea>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="propertyType" style="font-weight: bold; color: #007acc; margin-bottom: 5px; display: block;">Property Type</label>
+          <select id="propertyType" required
+            style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; font-size: 14px; transition: all 0.3s ease;">
+            <option value="">Select Type</option>
+            <option value="apartment">Apartment</option>
+            <option value="villa">Villa</option>
+            <option value="commercial">Commercial</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="imageUpload" style="font-weight: bold; color: #007acc; margin-bottom: 5px; display: block;">Upload Images</label>
+          <input type="file" id="imageUpload" accept="image/*" multiple
+            style="width: 95%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; outline: none; font-size: 14px; cursor: pointer;">
+        </div>
+
+        <button type="submit"
+          style="background-color: #ff7a00; color: #fff; font-size: 16px; padding: 12px; border: none; border-radius: 8px; cursor: pointer; width: 100%; transition: background 0.3s ease;">
+          Add Property
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+

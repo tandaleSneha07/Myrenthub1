@@ -171,16 +171,21 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Manage Properties</a></li>
                 <li><a href="#">Feedback</a></li>
-                <li><a href="#">Account</a></li>
+                <li><a routerLink="/account"(click)="Navigation()">Account</a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main>
         <div class="dashboard">
+            <div class="landlord-container">
+            
+
+            </div>
             <section class="property-management">
                 <h2>Your Properties</h2>
-                <button class="add-property">Add New Property</button>
+                <button (click)="navigationToAddproperty()"class="add-property">Add New Property</button>
                 <div class="property-listing">
                     <!-- No Example Property Cards -->
                     <!-- Property cards will be dynamically generated here -->
@@ -198,7 +203,7 @@
     </main>
 
     <!-- Add Google Maps API here -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy5DK2N1sH9u5lRhk2sYKyWCZu1pTau2E&callback=initMap" async defer></script>
     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -211,4 +216,3 @@
     </script>
 </body>
 </html>
-

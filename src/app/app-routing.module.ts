@@ -27,12 +27,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './auth/welcome/welcome.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AddpropertyComponent } from './dashboard/addproperty/addproperty.component';
+import { FeedbackComponent } from './dashboard/feedback/feedback.component';
+import { AccountComponent } from './dashboard/account/account.component';
+import { LandlordComponent } from './dashboard/landlord/landlord.component';
+import { TenantComponent } from './dashboard/tenant/tenant.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' }, // ✅ Default page
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path:'welcome', component: WelcomeComponent}
+  { path:'welcome', component: WelcomeComponent},
+  { path:'addproperty', component: AddpropertyComponent},
+  {path:'feedback',component:FeedbackComponent},
+  {path:'account',component:AccountComponent},
+  { path: 'landlord', component: LandlordComponent },
+  { path: 'tenant', component: TenantComponent },
+  
   // ✅ Redirect unknown routes to welcome
 ];
 
