@@ -194,6 +194,8 @@
 
             <section class="map-container">
                 <h2>Property Locations on Map</h2>
+                <app-map></app-map>
+
                 <div id="map">
                     <!-- Placeholder for Google Map -->
                     <p style="text-align: center; padding-top: 40%;">Map Placeholder</p>
@@ -203,8 +205,12 @@
     </main>
 
     <!-- Add Google Maps API here -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBy5DK2N1sH9u5lRhk2sYKyWCZu1pTau2E&callback=initMap" async defer></script>
-    <script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJUFp38nTvf-dhjP6GZ_AutYrpp-QWNiQ&callback=initMap" async defer></script> -->
+    
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: { lat: 28.6139, lng: 77.2090 }, // New Delhi (India's capital) coordinates

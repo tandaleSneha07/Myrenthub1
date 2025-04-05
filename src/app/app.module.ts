@@ -9,7 +9,7 @@ import { FeedbackComponent } from './dashboard/feedback/feedback.component';
 import { AccountComponent } from './dashboard/account/account.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
-
+import { MapComponent } from './dashboard/map/map.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { RouterModule } from '@angular/router';
     RegisterComponent,    // Registration page component
     AddpropertyComponent, // Add property feature component
     FeedbackComponent,    // Feedback feature component
-    AccountComponent,     // Account management component
+    AccountComponent,  
+    MapComponent   // Account management component
         
   ],
   imports: [

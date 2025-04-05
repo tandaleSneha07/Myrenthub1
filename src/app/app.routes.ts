@@ -7,6 +7,7 @@ import { TenantComponent } from './dashboard/tenant/tenant.component';
 import { AddpropertyComponent } from './dashboard/addproperty/addproperty.component';
 import { FeedbackComponent } from './dashboard/feedback/feedback.component';
 import { AccountComponent } from './dashboard/account/account.component';
+import { MapComponent } from './dashboard/map/map.component';
 
 
 
@@ -19,6 +20,7 @@ export const routes: Routes = [
     {path:'addproperty',component:AddpropertyComponent},
     {path:'feedback',component:FeedbackComponent},
     {path:'account',component:AccountComponent},
+    {path: 'map',component: MapComponent},
    
 
     {path: '**', redirectTo: 'welcome', pathMatch: 'full' }

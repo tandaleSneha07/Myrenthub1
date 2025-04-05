@@ -32,6 +32,8 @@ import { FeedbackComponent } from './dashboard/feedback/feedback.component';
 import { AccountComponent } from './dashboard/account/account.component';
 import { LandlordComponent } from './dashboard/landlord/landlord.component';
 import { TenantComponent } from './dashboard/tenant/tenant.component';
+import { MapComponent } from './dashboard/map/map.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' }, // ✅ Default page
@@ -43,7 +45,7 @@ const routes: Routes = [
   {path:'account',component:AccountComponent},
   { path: 'landlord', component: LandlordComponent },
   { path: 'tenant', component: TenantComponent },
-  
+  {path : 'map', component: MapComponent}
   // ✅ Redirect unknown routes to welcome
 ];
 
