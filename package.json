@@ -2,6 +2,7 @@
   "name": "try5",
   "version": "0.0.0",
   "scripts": {
+    "dev": "nodemon server.js",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -24,8 +25,10 @@
     "@angular/ssr": "^19.0.0",
     "@googlemaps/js-api-loader": "^1.16.8",
     "@nguniversal/express-engine": "^7.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongoose": "^8.12.2",
+    "mongoose": "^8.13.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -45,5 +48,18 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.6.2"
-  }
+  },
+  "description": "This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.0.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tandaleSneha07/Myrenthub1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tandaleSneha07/Myrenthub1/issues"
+  },
+  "homepage": "https://github.com/tandaleSneha07/Myrenthub1#readme"
 }
