@@ -1,42 +1,42 @@
 
-//import { Component } from '@angular/core';
-//import { Router } from '@angular/router';
+// import { Component } from '@angular/core';
+// import { Router } from '@angular/router';
 
-//@Component({
-  //selector: 'app-welcome',
- // templateUrl: './welcome.component.html',
-  //styleUrls: ['./welcome.component.css']
-//})
-//export class WelcomeComponent {
-  //constructor(private router: Router) {}
+// @Component({
+//   selector: 'app-welcome',
+//   templateUrl: './welcome.component.html',
+//   styleUrls: ['./welcome.component.css']
+// })
 
-  //navigateToRegister() {
-   // this.router.navigate(['/register']);
-  //}
-//}
-import { Component } from '@angular/core';
+// export class WelcomeComponent {
+//   constructor(private router: Router) {}
+
+//   goToAbout() {
+//     this.router.navigate(['/login']); // Navigates to AboutComponent
+//   }
+// }
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ApiService } from '../../services/api.service';
+
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
-//export class WelcomeComponent {
-  //constructor(private router: Router) {
-   // console.log('✅ WelcomeComponent Loaded'); // Debugging
-  //}
+export class WelcomeComponent implements OnInit {
 
-  //navigateToRegister() {
-    //console.log('➡️ Navigating to Register');
-    //this.router.navigate(['/register']);
- // }
-//}
-export class WelcomeComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private apiService: ApiService) {}
+
+  ngOnInit(): void {
+    this.apiService.getTest().subscribe((res) => {
+      console.log(res.message); // 🎯 Should print: You hit the /api/test route!
+    });
+  }
 
   goToAbout() {
-    this.router.navigate(['/login']); // Navigates to AboutComponent
+    this.router.navigate(['/login']);
   }
 }
 

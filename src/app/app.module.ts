@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './auth/welcome/welcome.component';
@@ -26,7 +27,8 @@ import { MapComponent } from './dashboard/map/map.component';
   imports: [
     BrowserModule,        // Core Angular module for browser support
     AppRoutingModule,     // Application routing module
-    RouterModule, 
+    RouterModule,
+  HttpClientModule 
           
     
   ],

@@ -20,7 +20,7 @@ export class RegisterComponent {
         '',
         [
           Validators.required,
-          Validators.pattern('^(?=.*\\d)(?=.*[a-zA-Z])(?=.*[^a-zA-Z0-9])\\S{8,}$')
+          Validators.pattern(/^(?=.[A-Za-z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,}$/)
         ]
       ],
       repassword: ['', Validators.required],
