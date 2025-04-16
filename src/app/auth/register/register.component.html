@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -186,32 +186,41 @@
 </head>
 <body>
   <div class="container">
-    <!-- Left Section -->
-    <div class="left">
+     Left Section -->
+     <!-- <div class="left">
       <h1>MyRentHub</h1>
       <p>Your journey to find the perfect stay begins here. Explore and connect with the best stays today!</p>
-    </div>
+    </div> -->
 
     <!-- Right Section -->
-    <div class="right">
+     <!-- <div class="right">
       <h2>Registration Form</h2>
       <form>
 
         <label for="User">User Name:</label>
-        <input type="text" id="User" name="last" required />
+        <input type="text" id="User" name="last" formControlName="last" required />
+<div *ngIf="registerForm.controls['last'].invalid && (registerForm.controls['last'].dirty || registerForm.controls['last'].touched)">
+  <div *ngIf="registerForm.controls['last'].errors?.['required']">User Name is required.</div>
+  <div *ngIf="registerForm.controls['last'].errors?.['minlength']">User Name must be at least 2 characters long.</div>
+</div>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />
 
         <label for="password">Password:</label>
         <input
-          type="password"
-          id="password"
-          name="password"
-          pattern="^(?=.\d)(?=.[A-Za-z])(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,}$"
-          title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
-          required
-        />
+  type="password"
+  id="password"
+  name="password"
+  formControlName="password"
+  required
+/>
+<div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+  <div *ngIf="registerForm.controls['password'].errors?.['required']">Password is required.</div>
+  <div *ngIf="registerForm.controls['password'].errors?.['pattern']">
+    Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long.
+  </div>
+</div>
 
         <label for="repassword">Re-type Password:</label>
         <input type="password" id="repassword" name="repassword" required />
@@ -224,8 +233,12 @@
           <option value="tenant">Tenant</option>
           <option value="landlord">Landlord</option>
         </select>
+ 
+        <button type="submit" [disabled]="registerForm.invalid">Submit</button>
+      
 
-        <button type="submit">Submit</button>
+      </form>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       </form>
 
       <div class="login-link">
@@ -235,5 +248,317 @@
     </div>
   </div>
 </body>
+</html>  --> 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+      max-width: 1200px;
+      height: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+
+    }
+
+    /* Left Section (Content) */
+    .left {
+      flex: 1;
+      background: url('https://via.placeholder.com/600x800') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: black;
+      padding: 20px;
+      animation: slideInLeft 1s ease-in-out;
+    }
+
+    .left h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: #f57c00;
+      letter-spacing: 3px;
+    }
+
+    .left p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* Right Section (Form) */
+    .right {
+      flex: 1;
+
+      background-color: rgba(255,255,255,0.27);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: slideInRight 1s ease-in-out;
+    }
+
+    .right h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #002855;
+    }
+
+    form {
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #002855;
+    }
+
+    input, select {
+      padding: 10px;
+      font-size: 1rem;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    input:focus, select:focus {
+      border-color: #f57c00;
+      outline: none;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      font-size: 1.1rem;
+      color: white;
+      background: #f57c00;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background: #ff9800;
+      transform: scale(1.05);
+    }
+
+    .login-link {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .login-link a {
+      color: #f57c00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .left, .right {
+        flex: none;
+        width: 100%;
+        height: 50%;
+      }
+
+      .left {
+        padding: 10px;
+      }
+
+      .right {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h1>MyRentHub</h1>
+      <p>Your journey to find the perfect stay begins here. Explore and connect with the best stays today!</p>
+    </div>
+
+    <div class="right">
+      <h2>Registration Form</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+        <label for="User">User Name:</label>
+        <input type="text" id="User" name="username" formControlName="username" required />
+        <div *ngIf="registerForm.controls['username'].invalid && (registerForm.controls['username'].dirty || registerForm.controls['username'].touched)">
+          <div *ngIf="registerForm.controls['username'].errors?.['required']">User Name is required.</div>
+          <div *ngIf="registerForm.controls['username'].errors?.['minlength']">User Name must be at least 2 characters long.</div>
+        </div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" formControlName="email" required />
+        <div *ngIf="registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)">
+          <div *ngIf="registerForm.controls['email'].errors?.['required']">Email is required.</div>
+          <div *ngIf="registerForm.controls['email'].errors?.['email']">Invalid email format.</div>
+        </div>
+
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          formControlName="password"
+          required
+        />
+        <div *ngIf="registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)">
+          <div *ngIf="registerForm.controls['password'].errors?.['required']">Password is required.</div>
+          <div *ngIf="registerForm.controls['password'].errors?.['pattern']">
+            Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long.
+          </div>
+        </div>
+
+        <label for="repassword">Re-type Password:</label>
+        <input type="password" id="repassword" name="repassword" formControlName="repassword" required />
+        <div *ngIf="registerForm.controls['repassword'].invalid && (registerForm.controls['repassword'].dirty || registerForm.controls['repassword'].touched)">
+          <div *ngIf="registerForm.controls['repassword'].errors?.['required']">Re-type Password is required.</div>
+          <div *ngIf="registerForm.controls['repassword'].errors?.['mismatch']">Passwords do not match.</div>
+        </div>
+
+        <label for="mobile">Contact:</label>
+        <input type="text" id="mobile" name="mobile" maxlength="10" formControlName="mobile" required />
+        <div *ngIf="registerForm.controls['mobile'].invalid && (registerForm.controls['mobile'].dirty || registerForm.controls['mobile'].touched)">
+          <div *ngIf="registerForm.controls['mobile'].errors?.['required']">Contact number is required.</div>
+          <div *ngIf="registerForm.controls['mobile'].errors?.['pattern']">Invalid contact number format (10 digits only).</div>
+        </div>
+
+        <label for="userType">User Type:</label>
+        <select id="userType" name="userType" formControlName="userType" required>
+          <option value="tenant">Tenant</option>
+          <option value="landlord">Landlord</option>
+        </select>
+        <div *ngIf="registerForm.controls['userType'].invalid && (registerForm.controls['userType'].dirty || registerForm.controls['userType'].touched)">
+          <div *ngIf="registerForm.controls['userType'].errors?.['required']">Please select a user type.</div>
+        </div>
+
+        <button type="submit" [disabled]="registerForm.invalid">Submit</button>
+
+        <div *ngIf="registrationSuccess" style="color: green; margin-top: 10px;">
+          Registration completed successfully!
+        </div>
+        <div *ngIf="registrationError" style="color: red; margin-top: 10px;">
+          {{ registrationError }}
+        </div>
+        <div *ngIf="loading" style="color: blue; margin-top: 10px;">
+          Registering... Please wait.
+        </div>
+
+      </form>
+
+      <div class="login-link">
+        Already have an account? <a (click)="navigateToLogin()">Login here</a>
+      </div>
+
+    </div>
+  </div>
+</body>
 </html>
 
+<!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <label for="first">First Name:</label>
+  <input type="text" id="first" formControlName="first" required />
+
+  <label for="last">Last Name:</label>
+  <input type="text" id="last" formControlName="last" required />
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email" required />
+
+  <label for="password">Password:</label>
+  <input
+    type="password"
+    id="password"
+    formControlName="password"
+    required
+    pattern="^(?=.*\d)(?=.*[A-Za-z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+    title="Password must contain at least one number, one alphabet, one symbol, and be at least 8 characters long"
+  />
+
+  <label for="repassword">Re-type Password:</label>
+  <input type="password" id="repassword" formControlName="repassword" required />
+
+  <label for="mobile">Contact:</label>
+  <input type="text" id="mobile" formControlName="mobile" maxlength="10" required />
+
+  <label for="userType">User Type:</label>
+  <select id="userType" formControlName="userType" required>
+    <option value="" disabled>Select Role</option>
+    <option value="tenant">Tenant</option>
+    <option value="landlord">Landlord</option>
+  </select>
+
+  <button type="submit">Submit</button>
+</form>
+
+<div class="login-link">
+  Already have an account? <a (click)="navigateToLogin()">Login here</a>
+</div> -->

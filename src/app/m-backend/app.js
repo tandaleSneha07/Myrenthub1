@@ -81,7 +81,6 @@ app.use(bodyParser.json());
 const login = require('./models/loginmodel');
 const register = require('./models/registrationmodel');
 const Feedback = require('./models/feedbackmodel');
-
 // Routes
 const property = require('./models/propertymodel'); // ⬅️ Import property route file
 app.use('/api', property); // ⬅️ All property-related routes start with /api

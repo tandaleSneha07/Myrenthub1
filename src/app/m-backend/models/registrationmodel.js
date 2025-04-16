@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator'); // for email validation
 
 const registrationSchema = new mongoose.Schema({
-  userName: {
+  username: {
     type: String,
     required: true,
     trim: true
