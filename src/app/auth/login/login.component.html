@@ -149,7 +149,7 @@
   </div>
 
   <!-- Angular Form -->
-  <form (ngSubmit)="onLogin()" #loginForm="ngForm" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  <!-- <form (ngSubmit)="onLogin()" #loginForm="ngForm" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
   width: 400px; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 10px; backdrop-filter: blur(10px); box-shadow: 0 0 10px rgba(0,0,0,0.5);">
 
   <h3 style="text-align: center; color: #fff;">Login Here</h3>
@@ -163,7 +163,7 @@
     style="width: 100%; margin-bottom: 20px; padding: 10px; border-radius: 5px; border: none;">
 
   <!-- Submit button - fixed -->
-  <button type="submit" [disabled]="!loginForm.valid"
+  <!-- <button type="submit" [disabled]="!loginForm.valid"
     style="width: 100%; padding: 12px; background-color: #fff; color: #000; font-weight: bold; border-radius: 5px; border: none; cursor: pointer;">
     Log In
   </button>
@@ -172,7 +172,38 @@
     Don't have an account?
     <a (click)="navigateToRegister()" style="color: #f57c00; cursor: pointer;">Register here</a>
   </div>
+</form> --> -->
+
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+  <input
+    type="text"
+    formControlName="username"
+    placeholder="Enter Username"
+    class="form-control"
+  />
+
+  <input
+    type="password"
+    formControlName="password"
+    placeholder="Enter Password"
+    class="form-control"
+  />
+
+  <button type="submit" [disabled]="!loginForm.valid"
+  style="width: 100%; padding: 12px; background-color: #fff; color: #000; font-weight: bold; border-radius: 5px; border: none; cursor: pointer;">
+  Log In
+</button>
+
+  <div *ngIf="loginError" class="error">
+    {{ loginError }}
+  </div>
 </form>
+
+<p>
+  Don't have an account?
+  <a (click)="navigateToRegister()"style="color: #f57c00; cursor: pointer;">Register here</a>
+</p>
+
 
 </body>
 </html>

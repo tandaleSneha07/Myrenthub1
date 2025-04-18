@@ -215,7 +215,7 @@ export class RegisterComponent {
       console.log('Registration Data:', registrationData); 
 
       
-      this.http.post('http://localhost:3000/api/register', registrationData)
+      this.http.post('http://localhost:3001/api/register', registrationData)
         .pipe(
           catchError((error) => {
             console.error('Registration failed:', error);

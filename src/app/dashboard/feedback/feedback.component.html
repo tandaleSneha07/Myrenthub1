@@ -253,7 +253,7 @@
 </head>
 <body>
 
-    <div class="feedback-container">
+    <!-- <div class="feedback-container">
         <h2>Tenant Feedback Form</h2>
         <form>
             <div class="form-group">
@@ -289,7 +289,114 @@
 
             <button type="submit" class="submit-btn">Submit Feedback</button>
         </form>
-    </div>
+    </div> -->
+    <!-- feedback.component.html -->
+<div class="feedback-container">
+    <h2>Tenant Feedback Form</h2>
+    <form (ngSubmit)="submitFeedback()" #feedbackForm="ngForm">
+  
+      <div class="form-group">
+        <label for="tenantName">Your Name</label>
+        <input
+          type="text"
+          id="tenantName"
+          name="tenantName"
+          placeholder="Enter your name"
+          [(ngModel)]="feedback.tenantName"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="property">Property Name</label>
+        <input
+          type="text"
+          id="property"
+          name="property"
+          placeholder="Enter property name"
+          [(ngModel)]="feedback.property"
+          required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label>Rating</label>
+        <div class="rating">
+          <!-- value must match the number you want stored -->
+          <input
+            type="radio"
+            id="star5"
+            name="rating"
+            [(ngModel)]="feedback.rating"
+            [value]="5"
+            required
+          /><label for="star5">★</label>
+  
+          <input
+            type="radio"
+            id="star4"
+            name="rating"
+            [(ngModel)]="feedback.rating"
+            [value]="4"
+          /><label for="star4">★</label>
+  
+          <input
+            type="radio"
+            id="star3"
+            name="rating"
+            [(ngModel)]="feedback.rating"
+            [value]="3"
+          /><label for="star3">★</label>
+  
+          <input
+            type="radio"
+            id="star2"
+            name="rating"
+            [(ngModel)]="feedback.rating"
+            [value]="2"
+          /><label for="star2">★</label>
+  
+          <input
+            type="radio"
+            id="star1"
+            name="rating"
+            [(ngModel)]="feedback.rating"
+            [value]="1"
+          /><label for="star1">★</label>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="comments">Your Comments</label>
+        <textarea
+          id="comments"
+          name="comments"
+          placeholder="Write your feedback..."
+          [(ngModel)]="feedback.comments"
+          required
+        ></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="suggestions">Any Suggestions?</label>
+        <textarea
+          id="suggestions"
+          name="suggestions"
+          placeholder="Share your suggestions..."
+          [(ngModel)]="feedback.suggestions"
+        ></textarea>
+      </div>
+  
+      <button
+        type="submit"
+        class="submit-btn"
+        [disabled]="feedbackForm.invalid"
+      >
+        Submit Feedback
+      </button>
+    </form>
+  </div>
+  
 
 </body>
 </html>

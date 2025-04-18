@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MapComponent } from '../map/map.component';
 
 
+
 @Component({
   selector: 'app-tenant',
   imports: [
