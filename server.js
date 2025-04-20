@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 require('dotenv').config(); // Load environment variables
 
-const propertyRoutes = require('./src/app/m-backend/routes/propertyRoutes'); // Property route
+const propertyRoutes = require('./src/app/m-backend/routes/propertyRoutes');// Property route
+
 
 const app = express();
 
@@ -113,6 +114,38 @@ app.post('/api/submit-feedback', async (req, res) => {
     res.status(500).json({ message: 'Failed to submit feedback' });
   }
 });
+
+const feedbackRoutes = require('./src/app/m-backend/routes/feedbackRoutes'); 
+app.use('/api/feedback', feedbackRoutes);  // Handles GET /api/feedback/:landlordId
+
+
+// ✅ Account Routes (NEW)
+const accountRoutes = require('./src/app/m-backend/routes/accountRoutes');
+app.use('/api/account', accountRoutes);
+
+// POST route to save account data
+app.post('/api/account/save', async (req, res) => {
+  try {
+    console.log('Received data:', req.body); // Log received data
+
+    const { name, email, phone } = req.body;
+
+    const newAccount = new Account({
+      name,
+      email,
+      phone
+    });
+
+    await newAccount.save();  // Save account to MongoDB
+    res.status(201).json({ message: 'Account saved successfully', account: newAccount });
+  } catch (error) {
+    console.error('Error saving account data:', error);
+    res.status(500).json({ message: 'Error saving account data', error: error.message });
+  }
+});
+
+
+
 
 // Test Route
 app.get('/api/test', (req, res) => {

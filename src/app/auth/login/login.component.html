@@ -1,4 +1,312 @@
+
+  <!-- Angular Form -->
+  <!-- <form (ngSubmit)="onLogin()" #loginForm="ngForm" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 400px; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 10px; backdrop-filter: blur(10px); box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+
+  <h3 style="text-align: center; color: #fff;">Login Here</h3>
+
+  <label for="username" style="color: #fff;">Username</label>
+  <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Enter Username" required
+    style="width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: none;">
+
+  <label for="password" style="color: #fff;">Password</label>
+  <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Enter Password" required
+    style="width: 100%; margin-bottom: 20px; padding: 10px; border-radius: 5px; border: none;">
+
+  <!-- Submit button - fixed -->
+  <!-- <button type="submit" [disabled]="!loginForm.valid"
+    style="width: 100%; padding: 12px; background-color: #fff; color: #000; font-weight: bold; border-radius: 5px; border: none; cursor: pointer;">
+    Log In
+  </button>
+
+  <div style="margin-top: 20px; color: #fff; text-align: center;">
+    Don't have an account?
+    <a (click)="navigateToRegister()" style="color: #f57c00; cursor: pointer;">Register here</a>
+  </div>
+</form> --> -->
+
+<!-- 
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism Login Form</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet"> 
+  <style>
+    /* Reset padding and margins */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Background styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url('your-background-image.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Glassmorphism effect */
+    .form-container {
+      width: 400px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      color: white;
+    }
+
+    .form-container h3 {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-container label {
+      display: block;
+      font-size: 16px;
+      margin: 10px 0 5px;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      margin-bottom: 20px;
+      outline: none;
+    }
+
+    .form-container input::placeholder {
+      color: #d3d3d3;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 15px;
+      background-color: #ff9800;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      background-color: #e68900;
+    }
+
+    .form-container .register-link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .form-container .register-link a {
+      color: #ff9800;
+      text-decoration: none;
+    }
+
+    .form-container .register-link a:hover {
+      text-decoration: underline;
+    }
+
+    .form-container .error {
+      color: red;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+  </style>
+</head>
+<body>-->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Login Form</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet"> 
+    <style media="screen">
+      /* All your existing CSS here */
+      *,
+      *:before,
+      *:after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+  
+      .background {
+        width: 430px;
+        height: 520px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
+  
+      .background-container {
+        width: 100px;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+  
+      .form-container {
+        height: 550px;
+        width: 400px;
+        background-color: rgba(255, 255, 255, 0.13);
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 50px 35px;
+        color: white;
+      }
+  
+      .form-container h3 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;
+      }
+  
+      label {
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+  
+      input {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+  
+      ::placeholder {
+        color: #e5e5e5;
+      }
+  
+      button {
+        margin-top: 50px;
+        width: 100%;
+        background-color: #ffffff;
+        color: #080710;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+  
+      .register-link {
+        margin-top: 15px;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+  
+      .register-link a {
+        color: #f57c00;
+        text-decoration: none;
+        font-weight: bold;
+      }
+  
+      .register-link a:hover {
+        text-decoration: underline;
+      }
+  
+      .error {
+        color: red;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 15px;
+      }
+  
+    </style>
+  </head>
+  <body>
+    <div class="background">
+      <div class="background-container">
+      </div>
+    </div>
+  
+    <div class="form-container">
+      <h3>Login to Your Account</h3>
+  
+      <!-- Angular Reactive Form -->
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <!-- Username -->
+        <label for="username">Username</label>
+        <input
+          type="text"
+          formControlName="username"
+          placeholder="Enter Username"
+          required
+        />
+        
+        <!-- Password -->
+        <label for="password">Password</label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Enter Password"
+          required
+        />
+  
+        <!-- Login Button -->
+        <button type="submit" [disabled]="!loginForm.valid">Log In</button>
+  
+        <!-- Error Message -->
+        <div *ngIf="loginError" class="error">
+          {{ loginError }}
+        </div>
+      </form>
+  
+      <!-- Registration Link -->
+      <div class="register-link">
+        <h2> Don't have an account? </h2>
+         <h2>
+           <a (click)="navigateToRegister()">Register here</a></h2>
+      </div>
+    </div>
+  
+    <!-- Add Angular & Bootstrap Scripts here -->
+    <!-- Example: -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script> -->
+  
+  </body>
+  </html>
+  
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -147,63 +455,49 @@
     <div class="background-container">
     </div>
   </div>
+  <div class="form-container">
+    <h3>Login to Your Account</h3>
 
-  <!-- Angular Form -->
-  <!-- <form (ngSubmit)="onLogin()" #loginForm="ngForm" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 400px; background: rgba(255, 255, 255, 0.1); padding: 30px; border-radius: 10px; backdrop-filter: blur(10px); box-shadow: 0 0 10px rgba(0,0,0,0.5);">
+     Angular Reactive Form 
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <!-- Username -->
+       
+      <!-- <label for="username">Username</label>
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="Enter Username"
+        required
+      />
+      
+      <!-- Password -->
+      <!-- <label for="password">Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Enter Password"
+        required
+      />
 
-  <h3 style="text-align: center; color: #fff;">Login Here</h3>
+      Login Button -->
+      <!-- <button type="submit" [disabled]="!loginForm.valid">Log In</button> -->
 
-  <label for="username" style="color: #fff;">Username</label>
-  <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Enter Username" required
-    style="width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 5px; border: none;">
+      <!-- Error Message -->
+      <!-- <div *ngIf="loginError" class="error">
+        {{ loginError }}
+      </div>
+    </form> -->
 
-  <label for="password" style="color: #fff;">Password</label>
-  <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Enter Password" required
-    style="width: 100%; margin-bottom: 20px; padding: 10px; border-radius: 5px; border: none;">
+    <!-- Registration Link 
+    <div class="register-link">
+      <p>Don't have an account? <a (click)="navigateToRegister()">Register here</a></p>
+    </div>
+  </div> 
 
-  <!-- Submit button - fixed -->
-  <!-- <button type="submit" [disabled]="!loginForm.valid"
-    style="width: 100%; padding: 12px; background-color: #fff; color: #000; font-weight: bold; border-radius: 5px; border: none; cursor: pointer;">
-    Log In
-  </button>
-
-  <div style="margin-top: 20px; color: #fff; text-align: center;">
-    Don't have an account?
-    <a (click)="navigateToRegister()" style="color: #f57c00; cursor: pointer;">Register here</a>
-  </div>
-</form> --> -->
-
-<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-  <input
-    type="text"
-    formControlName="username"
-    placeholder="Enter Username"
-    class="form-control"
-  />
-
-  <input
-    type="password"
-    formControlName="password"
-    placeholder="Enter Password"
-    class="form-control"
-  />
-
-  <button type="submit" [disabled]="!loginForm.valid"
-  style="width: 100%; padding: 12px; background-color: #fff; color: #000; font-weight: bold; border-radius: 5px; border: none; cursor: pointer;">
-  Log In
-</button>
-
-  <div *ngIf="loginError" class="error">
-    {{ loginError }}
-  </div>
-</form>
-
-<p>
-  Don't have an account?
-  <a (click)="navigateToRegister()"style="color: #f57c00; cursor: pointer;">Register here</a>
-</p>
-
+  <!-- Include Angular & Bootstrap (or other libraries) Scripts -->
+   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>  -->
+  <!-- Add your own Angular scripts here 
 
 </body>
-</html>
+</html> 
+-->

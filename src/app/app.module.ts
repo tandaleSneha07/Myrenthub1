@@ -55,6 +55,7 @@ import { RouterModule } from '@angular/router';
 import { MapComponent } from './dashboard/map/map.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './auth/auth.service'; 
 
 
 
@@ -78,7 +79,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule 
    
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

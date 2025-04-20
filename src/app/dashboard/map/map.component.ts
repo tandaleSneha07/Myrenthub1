@@ -1,35 +1,4 @@
-//import { Component,OnInit } from '@angular/core';
-//import { Loader} from '@googlemaps/js-api-loader';
 
-//@Component({
-  //selector: 'app-map',
-  //imports:[],
-  //templateUrl: './map.component.html',
-  //styleUrls: ['./map.component.scss']
-//})
-//export class MapComponent implements OnInit {
-  //title = 'map';
-
-  //ngOnInit(): void {
-    //let loader = new Loader({
-      //apiKey: 'AIzaSyBS5WJdKBvfS-5tI7VCo7Y2MO-cm0pU6zo'
-      //apiKey: 'AIzaSyDp7Xinw9uQwjysHJu_cvojxUd3MWmo5a4'
-    //});
-  
-    //loader.load().then(() => {
-     // const mapElement = document.getElementById("map") as HTMLElement | null;
-  
-      //if (mapElement) {
-        //new google.maps.Map(mapElement, {
-          //center: { lat: 20.593683, lng: 78.962883 },
-          //zoom: 6
-       // });
-     // } else {
-       // console.error("Map element not found");
-      //}
-   // });
-  //}
-//}
 import { Component, AfterViewInit } from '@angular/core';
 
 declare var google: any;
@@ -61,10 +30,10 @@ export class MapComponent implements AfterViewInit {
             mapTypeId: 'roadmap',
           });
 
-          new google.maps.Marker({
-            position: userLocation,
+          new google.maps.marker.AdvancedMarkerElement({
             map: this.map,
-            title: 'Your Location',
+            position: { lat: 19.0760, lng: 72.8777 },
+            title: 'Mumbai'
           });
         },
         () => {

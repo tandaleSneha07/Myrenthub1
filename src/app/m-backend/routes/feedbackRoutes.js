@@ -16,4 +16,13 @@ router.post('/add', async (req, res) => {
   }
 });
 
+router.get('/:landlordId', async (req, res) => {
+  try {
+    const feedbacks = await Feedback.find({ landlordId: req.params.landlordId });
+    res.json(feedbacks);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = router;

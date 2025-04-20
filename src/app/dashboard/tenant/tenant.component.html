@@ -192,8 +192,10 @@
             </div>
             <section class="search-properties">
                 <h2>Search Properties</h2>
-                <input type="text" placeholder="Enter location or property type" id="search-input">
-                <button>Search</button>
+                <input type="text" [(ngModel)]="searchText" placeholder="Enter location">
+                <button (click)="onSearchClick()">Search</button>
+
+
                 <div class="property-listing">
                     <!-- Property Cards will be dynamically generated here -->
                 </div>

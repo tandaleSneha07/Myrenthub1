@@ -122,7 +122,10 @@
         <label for="phone">Phone</label>
         <input type="tel" id="phone" placeholder="Enter your phone number">
       </div>
-      <button class="save-btn" onclick="updateDetails()">Save Details</button>
+      <!-- <button class="save-btn" onclick="updateDetails()">Save Details</button> -->
+      <!-- In your account.component.html -->
+<button class="save-btn" (click)="onSave()">Save Details</button>
+
     </div>
   </div>
 
